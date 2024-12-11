@@ -1,0 +1,43 @@
+{
+    "products": [
+      {
+        "product_name": "ProSmart Wireless Earbuds",
+        "description": "The ProSmart Wireless Earbuds offer superior sound quality with a sleek and ergonomic design. Featuring advanced noise-canceling technology, a long-lasting battery life of up to 20 hours, and a waterproof rating, these earbuds are perfect for workouts, travel, and daily use. Equipped with touch controls and an intuitive voice assistant feature, the ProSmart Wireless Earbuds provide a seamless and convenient experience for all users.",
+        "category": "Electronics > Audio > Earbuds",
+        "price": 79.99,
+        "discount": {
+          "percentage": 10,
+          "original_price": 89.99
+        },
+        "rating": 4.5,
+        "stock": 500,
+        "reviews": [
+          {
+            "customer_name": "John D.",
+            "rating": 5,
+            "review": "Great sound quality, especially for the price. Very comfortable to wear for long periods!"
+          },
+          {
+            "customer_name": "Mia L.",
+            "rating": 4,
+            "review": "These earbuds have great noise cancellation, but they take a bit longer to pair with devices."
+          },
+          {
+            "customer_name": "Alex P.",
+            "rating": 5,
+            "review": "Waterproof and durable, perfect for outdoor workouts."
+          }
+        ],
+        "images": [
+          "https://cdn.dummyjson.com/products/images/vehicle/300%20Touring/1.png",
+          "https://cdn.dummyjson.com/products/images/vehicle/300%20Touring/2.png",
+          "https://cdn.dummyjson.com/products/images/vehicle/300%20Touring/3.png",
+          "https://cdn.dummyjson.com/products/images/vehicle/300%20Touring/4.png",
+          "https://cdn.dummyjson.com/products/images/vehicle/300%20Touring/5.png",
+          "https://cdn.dummyjson.com/products/images/vehicle/300%20Touring/6.png"
+        ]
+      }
+      
+    ]
+  }
+  

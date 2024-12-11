@@ -1,0 +1,67 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Ahmed Ali",
+      "email": "ahmed@example.com",
+      "password": "Ahmed123!@#",
+      "role": "admin",
+      "image": "https://randomuser.me/api/portraits/men/1.jpg",
+      "phone": "+201234567890"
+    },
+    {
+      "id": "2",
+      "name": "Ali Hassan",
+      "email": "ali@example.com",
+      "password": "AliHassan456@#",
+      "role": "user",
+      "image": "https://randomuser.me/api/portraits/men/4.jpg",
+      "phone": "+201234567891"
+    },
+    {
+      "id": "45a5",
+      "name": "Shimaa Essam",
+      "email": "shimaa@gmail.com",
+      "password": "Shimaa@1234!",
+      "role": "admin",
+      "image": "https://randomuser.me/api/portraits/women/1.jpg",
+      "phone": "+201234567892"
+    },
+    {
+      "id": "3dfc",
+      "name": "Fatma",
+      "email": "fatma@gmail.com",
+      "password": "Fatma#1234!",
+      "role": "user",
+      "image": "https://randomuser.me/api/portraits/women/8.jpg",
+      "phone": "+201234567893"
+    },
+    {
+      "id": "881a",
+      "name": "Aya",
+      "email": "aya@gmail.com",
+      "password": "Aya456!@#",
+      "role": "admin",
+      "image": "https://randomuser.me/api/portraits/women/4.jpg",
+      "phone": "+201234567894"
+    },
+    {
+      "id": "50da",
+      "name": "Gary Richard",
+      "email": "kejer@mailinator.com",
+      "password": "Pa$$w0rd!",
+      "role": "user",
+      "image": "https://randomuser.me/api/portraits/men/5.jpg",
+      "phone": "01002344096"
+    },
+    {
+      "id": "2aeb",
+      "name": "Veda Rasmussen",
+      "email": "zybeqyda@mailinator.com",
+      "password": "Pa$$w0rd!",
+      "phone": "01202744016",
+      "image": "https://randomuser.me/api/portraits/men/6.jpg",
+      "role": "user"
+    }
+  ]
+}
