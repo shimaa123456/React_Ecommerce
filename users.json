@@ -62,6 +62,24 @@
       "phone": "01202744016",
       "image": "https://randomuser.me/api/portraits/men/6.jpg",
       "role": "user"
+    },
+    {
+      "id": "1a6c",
+      "name": "Marcia Pena",
+      "email": "cihi@mailinator.com",
+      "password": "Pa$$w0rd!",
+      "phone": "01202744016",
+      "image": "https://randomuser.me/api/portraits/men/7.jpg",
+      "role": "user"
+    },
+    {
+      "id": "95e1",
+      "name": "Elton Richmond",
+      "email": "mijidofuvi@mailinator.com",
+      "password": "Pa$$w0rd!",
+      "phone": "01202445567",
+      "image": "https://randomuser.me/api/portraits/men/6.jpg",
+      "role": "user"
     }
   ]
 }

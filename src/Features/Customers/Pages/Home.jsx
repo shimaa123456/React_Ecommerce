@@ -1,6 +1,6 @@
 
 import LogoNavbar from '../../Admin/Components/LogoNavbar';
-import Navbar from '../Components/Navbar';
+import Navbar from '../Components/UserNavbar';
 
 const HomePage = () => {
   return (

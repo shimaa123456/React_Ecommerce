@@ -1,28 +1,29 @@
 import { useState, useEffect } from "react";
-import { faBox, faShoppingCart, faTruck, faFileAlt, faUsers, faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBox, faShoppingCart, faTruck, faFileAlt, faShoppingBasket, faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, useLocation } from "react-router-dom";
 
-const Navbar = () => {
+const UserNavbar = () => {
   const location = useLocation();
   const [activeItem, setActiveItem] = useState("null");
-  const [isSidebarVisible, setIsSidebarVisible] = useState(false); // New state for sidebar visibility
+  const [isSidebarVisible, setIsSidebarVisible] = useState(false); // Sidebar visibility
 
   // Update the active item based on the URL path
   useEffect(() => {
     const path = location.pathname;
-    if (path.includes("products")) {
+    if (path.includes("home")) {
+      setActiveItem("home");
+    } else if (path.includes("products")) {
       setActiveItem("products");
-    } else if (path.includes("orders")) {
-      setActiveItem("orders");
-    } else if (path.includes("quotations")) {
-      setActiveItem("quotations");
-    } else if (path.includes("users")) {
-      setActiveItem("users");
-    } else {
-      setActiveItem("dashboard");
+    } else if (path.includes("cart")) {
+      setActiveItem("cart");
+    } else if (path.includes("checkout")) {
+      setActiveItem("checkout");
+    } else if (path.includes("orderhistory")) {
+      setActiveItem("orderhistory");
     }
   }, [location]);
+
   const handleItemClick = (item) => {
     setActiveItem(item);
     setIsSidebarVisible(false); // Close the sidebar after clicking an item
@@ -42,23 +43,23 @@ const Navbar = () => {
           aria-controls="sidebar"
           aria-expanded={isSidebarVisible}
           aria-label="Toggle navigation"
-          style={{ left: "10px" }} 
+          style={{ left: "10px" }}
         >
           <FontAwesomeIcon icon={faBars} style={{ color: "#4B7BAF" }} />
         </button>
 
         {/* Navbar Links (Desktop View) */}
         <ul className="navbar-nav d-flex flex-row m-0 d-none d-lg-flex">
-        {[
-            { key: "dashboard", label: "Dashboard", icon: faBox, path: "/dashboard" },
-            { key: "products", label: "Products", icon: faShoppingCart, path: "/dashboard/products" },
-            { key: "orders", label: "Orders", icon: faTruck, path: "/dashboard/orders" },
-            { key: "quotations", label: "Quotations", icon: faFileAlt, path: "/dashboard/quotations" },
-            { key: "users", label: "Users", icon: faUsers, path: "/dashboard/users" }, 
+          {[
+            { key: "home", label: "Home", icon: faBox, path: "/home" },
+            { key: "products", label: "Products", icon: faShoppingCart, path: "/products" },
+            { key: "cart", label: "Cart", icon: faTruck, path: "/cart" },
+            { key: "checkout", label: "Checkout", icon: faFileAlt, path: "/checkout" },
+            { key: "orderhistory", label: "Order History", icon: faShoppingBasket, path: "/orderhistory" },
           ].map((item) => (
             <li className="nav-item me-4" key={item.key}>
               <Link
-                to={item.path}  
+                to={item.path}
                 className={`nav-link d-flex align-items-center ${activeItem === item.key ? "active-nav-item" : ""}`}
                 onClick={() => handleItemClick(item.key)}
                 style={{
@@ -106,7 +107,7 @@ const Navbar = () => {
         <div
           className="sidebar bg-white position-absolute w-100"
           style={{
-            top: "60px", 
+            top: "60px",
             left: 0,
             padding: "20px",
             boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
@@ -114,16 +115,16 @@ const Navbar = () => {
           }}
         >
           <ul className="navbar-nav d-flex flex-column">
-          {[
-            { key: "dashboard", label: "Dashboard", icon: faBox, path: "/dashboard" },
-            { key: "products", label: "Products", icon: faShoppingCart, path: "/dashboard/products" },
-            { key: "orders", label: "Orders", icon: faTruck, path: "/dashboard/orders" },
-            { key: "quotations", label: "Quotations", icon: faFileAlt, path: "/dashboard/quotations" },
-            { key: "users", label: "Users", icon: faUsers, path: "/dashboard/users" }, // New Users item
-          ].map((item) => (
+            {[
+              { key: "home", label: "Home", icon: faBox, path: "/home" },
+              { key: "products", label: "Products", icon: faShoppingCart, path: "/products" },
+              { key: "cart", label: "Cart", icon: faTruck, path: "/cart" },
+              { key: "checkout", label: "Checkout", icon: faFileAlt, path: "/checkout" },
+              { key: "orderhistory", label: "Order History", icon: faShoppingBasket, path: "/orderhistory" },
+            ].map((item) => (
               <li className="nav-item mb-3" key={item.key}>
                 <Link
-                  to={item.path} 
+                  to={item.path}
                   className={`nav-link d-flex align-items-center ${activeItem === item.key ? "active-nav-item" : ""}`}
                   onClick={() => handleItemClick(item.key)}
                   style={{
@@ -157,7 +158,6 @@ const Navbar = () => {
           }
 
           @media (max-width: 991.98px) {
-            /* Sidebar Items */
             .sidebar {
               display: block;
               position: absolute;
@@ -190,4 +190,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default UserNavbar;

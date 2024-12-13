@@ -1,7 +1,7 @@
 {
     "products": [
       {
-        "product_name": "ProSmart Wireless Earbuds",
+        "productName": "ProSmart Wireless Earbuds",
         "description": "The ProSmart Wireless Earbuds offer superior sound quality with a sleek and ergonomic design. Featuring advanced noise-canceling technology, a long-lasting battery life of up to 20 hours, and a waterproof rating, these earbuds are perfect for workouts, travel, and daily use. Equipped with touch controls and an intuitive voice assistant feature, the ProSmart Wireless Earbuds provide a seamless and convenient experience for all users.",
         "category": "Electronics > Audio > Earbuds",
         "price": 79.99,
