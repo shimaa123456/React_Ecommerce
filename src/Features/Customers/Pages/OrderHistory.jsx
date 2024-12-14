@@ -2,19 +2,20 @@ import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const OrderHistory = () => {
-  const [orders, setOrders] = useState([]); 
-  const [loading, setLoading] = useState(true); 
-  const [error, setError] = useState(null); 
+  const [orders, setOrders] = useState([]); // لتخزين الطلبات
+  const [loading, setLoading] = useState(true); // مؤشر التحميل
+  const [error, setError] = useState(null); // لتخزين الأخطاء إن وجدت
+
   useEffect(() => {
-    fetchOrders(); 
+    fetchOrders(); // استدعاء الـ API عند تحميل الصفحة
   }, []);
 
   const fetchOrders = async () => {
     try {
-      const response = await fetch("http://localhost:5001/orders"); 
-      if (!response.ok) throw new Error("Failed to fetch orders ");
+      const response = await fetch("http://localhost:5001/orders"); // رابط JSON Server
+      if (!response.ok) throw new Error("Failed to fetch orders");
       const data = await response.json();
-      setOrders(data); 
+      setOrders(data); // تخزين البيانات في الحالة
       setLoading(false);
     } catch (err) {
       setError(err.message);
@@ -31,9 +32,9 @@ const OrderHistory = () => {
       <table className="table table-striped mt-4">
         <thead>
           <tr>
-            <th>Order Number</th>
+            <th>Order ID</th>
             <th>Date</th>
-            <th>Customer Name</th>
+            <th>Customer ID</th>
             <th>Payment Status</th>
             <th>Total Price</th>
             <th>Number of Items</th>
@@ -42,14 +43,14 @@ const OrderHistory = () => {
         <tbody>
           {orders.map((order) => (
             <tr key={order.id}>
-              <td>{order.orderNumber}</td>
-              <td>{order.date}</td>
-              <td>{order.customerName}</td>
-              <td className={`text-${getPaymentColor(order.paymentStatus)}`}>
-                {order.paymentStatus}
+              <td>{order.id}</td>
+              <td>{new Date(order.createdAt).toLocaleDateString()}</td>
+              <td>{order.userId}</td>
+              <td className={`text-${getPaymentColor(order.status)}`}>
+                {order.status}
               </td>
-              <td>${order.totalPrice.toFixed(2)}</td>
-              <td>{order.itemsCount}</td>
+              <td>${order.total.toFixed(2)}</td>
+              <td>{order.products.length}</td>
             </tr>
           ))}
         </tbody>
@@ -60,12 +61,12 @@ const OrderHistory = () => {
 
 // دالة لتحديد لون حالة الدفع
 const getPaymentColor = (status) => {
-  switch (status) {
-    case "Pending":
+  switch (status.toLowerCase()) {
+    case "pending":
       return "warning";
-    case "Success":
+    case "completed":
       return "success";
-    case "Cancelled":
+    case "cancelled":
       return "danger";
     default:
       return "secondary";
