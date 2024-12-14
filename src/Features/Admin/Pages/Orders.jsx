@@ -1,5 +1,7 @@
 import LogoNavbar from '../Components/LogoNavbar';
 import Navbar from '../Components/Navbar';
+import { Outlet } from "react-router-dom";
+
 const OrdersPage = () => {
     return (
         <div className="bg-light min-vh-100">
@@ -10,8 +12,10 @@ const OrdersPage = () => {
             {/* Secondary Navbar */}
             <Navbar />
 
-            {/* Dashboard Content */}
-            <div className="container-fluid p-4">Orders</div>
+            {/* Orders Content */}
+            <div className="container-fluid p-4">
+            <Outlet />
+            </div>
         </div>
         </div>
     );

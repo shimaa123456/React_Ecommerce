@@ -1,19 +1,100 @@
 {
-    "orders": [
-      {
-        "id": "1",
-        "userId": "2",
-        "status": "pending",
-        "total": 100,
-        "createdAt": "2024-12-11T10:00:00"
-      },
-      {
-        "id": "2",
-        "userId": "3dfc",
-        "status": "completed",
-        "total": 200,
-        "createdAt": "2024-12-10T15:30:00"
-      }
-    ]
-  }
-  
+  "orders": [
+    {
+      "id": "1",
+      "userId": "1",
+      "status": "pending",
+      "total": 100,
+      "tax": 15,
+      "discount": 10,
+      "coupon": "SUMMER21",
+      "paymentMethod": "Credit Card",
+      "shippingMethod": "Standard Shipping",
+      "createdAt": "2024-12-11T10:00:00",
+      "isCompleted": false,
+      "products": [
+        {
+          "id": "1",
+          "title": "Essence Mascara Lash Princess",
+          "description": "The Essence Mascara Lash Princess is a cruelty-free formula.",
+          "category": "beauty",
+          "price": 9.99,
+          "discountPercentage": 7,
+          "stock": 5,
+          "tags": ["mascara", "beauty", "lashes"],
+          "thumbnail": "https://cdn.dummyjson.com/EssenceMascaraLashPrincess/thumbnail.png",
+          "images": [
+            "https://cdn.dummyjson.com/EssenceMascaraLashPrincess/image1.png",
+            "https://cdn.dummyjson.com/EssenceMascaraLashPrincess/image2.png"
+          ],
+          "rating": 4.94,
+          "brand": "Essence",
+          "sku": "RCH45Q1A",
+          "weight": 2,
+          "dimensions": {
+            "width": 3,
+            "height": 15,
+            "length": 5
+          },
+          "warrantyInformation": "1 month warranty",
+          "shippingInformation": "Ships in 1 month",
+          "availabilityStatus": "Low Stock",
+          "returnPolicy": "30 days return policy",
+          "minimumOrderQuantity": 24,
+          "meta": {
+            "color": "black",
+            "material": "plastic"
+          }
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "userId": "50da",
+      "status": "completed",
+      "total": 200,
+      "tax": 30,
+      "discount": 20,
+      "coupon": "WINTER15",
+      "paymentMethod": "PayPal",
+      "shippingMethod": "Express Shipping",
+      "createdAt": "2024-12-10T15:30:00",
+      "isCompleted": true,
+      "products": [
+        {
+          "id": "1",
+          "title": "Essence Mascara Lash Princess",
+          "description": "The Essence Mascara Lash Princess is a cruelty-free formula.",
+          "category": "beauty",
+          "price": 9.99,
+          "discountPercentage": 7,
+          "stock": 5,
+          "tags": ["mascara", "beauty", "lashes"],
+          "thumbnail": "https://cdn.dummyjson.com/EssenceMascaraLashPrincess/thumbnail.png",
+          "images": [
+            "https://cdn.dummyjson.com/EssenceMascaraLashPrincess/image1.png",
+            "https://cdn.dummyjson.com/EssenceMascaraLashPrincess/image2.png"
+          ],
+          "rating": 4.94,
+          "brand": "Essence",
+          "sku": "RCH45Q1A",
+          "weight": 2,
+          "dimensions": {
+            "width": 3,
+            "height": 15,
+            "length": 5
+          },
+          "warrantyInformation": "1 month warranty",
+          "shippingInformation": "Ships in 1 month",
+          "availabilityStatus": "Low Stock",
+          "returnPolicy": "30 days return policy",
+          "minimumOrderQuantity": 24,
+          "meta": {
+            "color": "black",
+            "material": "plastic"
+          }
+        }
+      ]
+    }
+  ]
+}
