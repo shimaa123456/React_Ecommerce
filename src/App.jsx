@@ -73,7 +73,7 @@ function App() {
         </Route>
 
         {/* Home Route */}
-        <Route path="home" element={<Home />} />
+      <Route path="home" element={<Home />} />
         <Route path="products" element={<UserProducts />} />
         <Route path="cart" element={<Cart />} />
         <Route path="checkout" element={<Checkout />} />
@@ -82,5 +82,8 @@ function App() {
     </BrowserRouter>
   );
 }
-
 export default App;
+
+
+
+

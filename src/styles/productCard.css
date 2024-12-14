@@ -1,0 +1,53 @@
+
+  
+  .image-container {
+    position: relative;
+  }
+  
+  .icons {
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+    
+  }
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; 
+    height: 40px; 
+    background-color: rgba(0, 0, 0, 0.1); 
+    border-radius: 5px; 
+    font-size: 20px; 
+    color: #333; 
+    transition: background-color 0.3s ease; 
+    position: relative;
+  }
+  
+  .cards:hover .icons {
+    opacity: 1; 
+  }
+  
+  .icons span {
+    font-size: 24px; 
+    color: rgb(11, 11, 11); 
+    margin: 0 10px;
+    cursor: pointer;
+  }
+  
+  .cards:hover .icons span:hover {
+    background-color: #ff9900; 
+    color: white;
+  }
+  .body {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
+    text-align: center; 
+    height: 100px; 
+    width: 250px;
+  }
