@@ -1,5 +1,6 @@
 import LogoNavbar from '../Components/LogoNavbar';
 import Navbar from '../Components/Navbar';
+import { Outlet } from "react-router-dom";
 
 const ProductsPage = () => {
     return (
@@ -11,8 +12,10 @@ const ProductsPage = () => {
                 {/* Secondary Navbar */}
                 <Navbar />
 
-                {/* Dashboard Content */}
-                <div className="container-fluid p-4">Products</div>
+                 {/* product Page Content */}
+                <div className="container-fluid p-4">
+                <Outlet />
+                </div>
             </div>
         </div>
     );
