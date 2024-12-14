@@ -1,14 +1,24 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./Features/Auth/Pages/LoginPage"; 
 import Register from "./Features/Auth/Pages/RegisterPage";
+import Profile from "./Features/Auth/Pages/ProfilePage";
+import EditProfile from "./Features/Auth/Pages/EditProfile";
+
+
 import Dashboard from "./Features/Admin/Pages/Dashboard";
-import Products from "./Features/Admin/Pages/Products"; 
 import Orders from "./Features/Admin/Pages/Orders"; 
 import Quotations from "./Features/Admin/Pages/Quotations"; 
 import Users from "./Features/Admin/Pages/Users";
-import AllUsers from "./Features/Admin/Components/AllUsers";
-import AddUser from "./Features/Admin/Components/AddUser";
-
+import AllUsers from "./Features/Admin/Components/Users/AllUsers";
+import AddUser from "./Features/Admin/Components/Users/AddUser";
+import EditUser from "./Features/Admin/Components/Users/EditUser";
+import ViewUser from "./Features/Admin/Components/Users/ViewUser";
+import Products from "./Features/Admin/Pages/Products";
+import AllProducts from "./Features/Admin/Components/Products/AllProducts";
+import AddProduct from "./Features/Admin/Components/Products/AddProduct";
+import  EditProduct from "./Features/Admin/Components/Products/EditProduct";
+import ViewProduct from "./Features/Admin/Components/Products/ViewProduct";
+import AllOrders from "./Features/Admin/Components/Orders/AllOrders";
 
 
 
@@ -39,15 +49,27 @@ function App() {
         {/* Public Routes */}
         <Route index element={<Login />} />
         <Route path="register" element={<Register />} />
+        <Route path="profile/:id" element={<Profile />} />
+        <Route path="edit-profile/:id" element={<EditProfile />} />
 
         {/* Dashboard Routes */}
         <Route path="dashboard" element={<Dashboard />} />
-        <Route path="dashboard/products" element={<Products />} />
-        <Route path="dashboard/orders" element={<Orders />} />
         <Route path="dashboard/quotations" element={<Quotations />} />
         <Route path="dashboard/users" element={<Users />}>
           <Route index element={<AllUsers />} />
-          <Route path="adduser" element={<AddUser/>} />
+          <Route path="add-user" element={<AddUser/>} />
+          <Route path="edit-user/:id" element={<EditUser />} />
+          <Route path="/dashboard/users/view-user/:id" element={<ViewUser />} />
+        </Route>
+        <Route path="dashboard/products" element={<Products />}>
+          <Route index element={<AllProducts />} />
+          <Route path="add-product" element={<AddProduct />} />
+          <Route path="edit-product/:id" element={<EditProduct />} />
+          <Route path="/dashboard/products/view-product/:id" element={<ViewProduct />} />
+        </Route>
+        <Route path="dashboard/orders" element={<Orders />} >
+          <Route index element={<AllOrders />} />
+
         </Route>
 
         {/* Home Route */}
