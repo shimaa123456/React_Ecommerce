@@ -28,7 +28,11 @@ const ProfilePage = () => {
   };
 
   const handleClose = () => {
-    navigate('/dashboard'); 
+    if (user && user.role === 'admin') {
+      navigate('/dashboard'); 
+    } else {
+      navigate('/home'); 
+    }
   };
 
   return (

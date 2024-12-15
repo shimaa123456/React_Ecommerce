@@ -2,18 +2,22 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUsers } from '../Components/AdminRedux/UsersSlice';
 import { fetchProducts } from '../Components/AdminRedux/ProductsSlice'; 
+import { fetchOrders } from '../Components/AdminRedux/OrdersSlice';  
+import { fetchCoupons } from '../Components/AdminRedux/CouponsSlice';  
 import LogoNavbar from '../Components/LogoNavbar';
 import Navbar from '../Components/Navbar';
 import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';  // Import useNavigate for React Router v6+
+import { useNavigate } from 'react-router-dom';
 
 const DashboardPage = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();  // Initialize navigate
+  const navigate = useNavigate();  
 
-  // Get users and products data from Redux store
+  // Get users, products, orders, and coupons data from Redux store
   const { users, error: usersError } = useSelector((state) => state.users);
   const { products, error: productsError } = useSelector((state) => state.products);
+  const { orders, error: ordersError } = useSelector((state) => state.orders); 
+  const { coupons, error: couponsError } = useSelector((state) => state.coupons);
 
   useEffect(() => {
     if (usersError) {
@@ -22,23 +26,38 @@ const DashboardPage = () => {
     if (productsError) {
       toast.error(`Error: ${productsError}`);
     }
-  }, [usersError, productsError]);
+    if (ordersError) {
+      toast.error(`Error: ${ordersError}`); 
+    }
+    if (couponsError) {
+      toast.error(`Error: ${couponsError}`); 
+    }
+  }, [usersError, productsError, ordersError, couponsError]);
 
   useEffect(() => {
-    // Dispatch action to fetch users and products when the component mounts
     dispatch(fetchUsers());
     dispatch(fetchProducts());
+    dispatch(fetchOrders());
+    dispatch(fetchCoupons());  
   }, [dispatch]);
 
-  // Calculate the number of users, admins, products, and categories
+  // Calculate metrics
   const totalUsers = users.length;
   const totalAdmins = users.filter((user) => user.role === 'admin').length;
-
   const totalProducts = products.length;
   const categories = [...new Set(products.map((product) => product.category))];
   const totalCategories = categories.length;
+  const totalOrders = orders.length;  
+  const totalCompletedOrders = orders.filter((order) => order.status === 'completed').length;  
 
-  // Function to navigate to the Add Product page
+  const totalCoupons = coupons.length;
+
+  // Coupons starting today
+  const today = new Date().toISOString().split('T')[0];
+  const todayCoupons = coupons.filter(
+    (coupon) => coupon.startDate.split('T')[0] === today
+  ).length;
+
   const handleAddProduct = () => {
     navigate('products/add-product');  
   };
@@ -56,7 +75,7 @@ const DashboardPage = () => {
         <div className="container-fluid p-4">
           <header className="d-flex justify-content-between align-items-center mb-4">
             <h1 className="h4">Dashboard</h1>
-            <button className="btn " onClick={handleAddProduct} style ={{ backgroundColor: '#6B94D3', color: 'white' }}>
+            <button className="btn " onClick={handleAddProduct} style={{ backgroundColor: '#6B94D3', color: 'white' }}>
               <i className="fas fa-plus"></i> Create new product
             </button>
           </header>
@@ -78,8 +97,8 @@ const DashboardPage = () => {
               <div className="card text-center">
                 <div className="card-body">
                   <i className="fas fa-shopping-cart fa-2x text-success mb-3"></i>
-                  <h5 className="card-title">0 Orders</h5>
-                  <p className="card-text">0 shipped</p>
+                  <h5 className="card-title">{totalOrders} Orders</h5>
+                  <p className="card-text">{totalCompletedOrders} Completed</p>
                 </div>
               </div>
             </div>
@@ -95,13 +114,13 @@ const DashboardPage = () => {
               </div>
             </div>
 
-            {/* Quotations Card */}
+            {/* Coupons Card */}
             <div className="col-12 col-md-3 mb-4">
               <div className="card text-center">
                 <div className="card-body">
-                  <i className="fas fa-file-alt fa-2x text-warning mb-3"></i>
-                  <h5 className="card-title">0 Quotations</h5>
-                  <p className="card-text">0 today</p>
+                  <i className="fas fa-tag fa-2x text-info mb-3"></i>
+                  <h5 className="card-title">{totalCoupons} Coupons</h5>
+                  <p className="card-text">{todayCoupons} Today</p>
                 </div>
               </div>
             </div>
