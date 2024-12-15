@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+// Import navigation components
+import LogoNavbar from '../../Admin/Components/LogoNavbar';
+import Navbar from '../Components/UserNavbar';
+
 const OrderHistory = () => {
   const [orders, setOrders] = useState([]); // لتخزين الطلبات
   const [loading, setLoading] = useState(true); // مؤشر التحميل
@@ -27,34 +31,45 @@ const OrderHistory = () => {
   if (error) return <div className="text-center text-danger">Error: {error}</div>;
 
   return (
-    <div className="container mt-4">
-      <h1 className="text-center">Order History</h1>
-      <table className="table table-striped mt-4">
-        <thead>
-          <tr>
-            <th>Order ID</th>
-            <th>Date</th>
-            <th>Customer ID</th>
-            <th>Payment Status</th>
-            <th>Total Price</th>
-            <th>Number of Items</th>
-          </tr>
-        </thead>
-        <tbody>
-          {orders.map((order) => (
-            <tr key={order.id}>
-              <td>{order.id}</td>
-              <td>{new Date(order.createdAt).toLocaleDateString()}</td>
-              <td>{order.userId}</td>
-              <td className={`text-${getPaymentColor(order.status)}`}>
-                {order.status}
-              </td>
-              <td>${order.total.toFixed(2)}</td>
-              <td>{order.products.length}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div className="bg-light min-vh-100">
+      {/* Logo Navbar */}
+      <LogoNavbar />
+
+      <div className="container-fluid p-0">
+        {/* Secondary Navbar */}
+        <Navbar />
+
+        {/* Main Content */}
+        <div className="container mt-4">
+          <h1 className="text-center">Order History</h1>
+          <table className="table table-striped mt-4">
+            <thead>
+              <tr>
+                <th>Order ID</th>
+                <th>Date</th>
+                <th>Customer ID</th>
+                <th>Payment Status</th>
+                <th>Total Price</th>
+                <th>Number of Items</th>
+              </tr>
+            </thead>
+            <tbody>
+              {orders.map((order) => (
+                <tr key={order.id}>
+                  <td>{order.id}</td>
+                  <td>{new Date(order.createdAt).toLocaleDateString()}</td>
+                  <td>{order.userId}</td>
+                  <td className={`text-${getPaymentColor(order.status)}`}>
+                    {order.status}
+                  </td>
+                  <td>${order.total.toFixed(2)}</td>
+                  <td>{order.products.length}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 };
