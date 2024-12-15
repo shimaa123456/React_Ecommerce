@@ -6,20 +6,20 @@ import LogoNavbar from '../../Admin/Components/LogoNavbar';
 import Navbar from '../Components/UserNavbar';
 
 const OrderHistory = () => {
-  const [orders, setOrders] = useState([]); // لتخزين الطلبات
-  const [loading, setLoading] = useState(true); // مؤشر التحميل
-  const [error, setError] = useState(null); // لتخزين الأخطاء إن وجدت
+  const [orders, setOrders] = useState([]); // to store orders
+  const [loading, setLoading] = useState(true);  
+  const [error, setError] = useState(null); 
 
   useEffect(() => {
-    fetchOrders(); // استدعاء الـ API عند تحميل الصفحة
-  }, []);
+    fetchOrders(); 
+    }, []);
 
   const fetchOrders = async () => {
     try {
-      const response = await fetch("http://localhost:5001/orders"); // رابط JSON Server
+      const response = await fetch("http://localhost:5001/orders");  
       if (!response.ok) throw new Error("Failed to fetch orders");
       const data = await response.json();
-      setOrders(data); // تخزين البيانات في الحالة
+      setOrders(data); 
       setLoading(false);
     } catch (err) {
       setError(err.message);
