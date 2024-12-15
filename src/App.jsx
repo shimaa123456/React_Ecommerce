@@ -19,6 +19,14 @@ import AddProduct from "./Features/Admin/Components/Products/AddProduct";
 import  EditProduct from "./Features/Admin/Components/Products/EditProduct";
 import ViewProduct from "./Features/Admin/Components/Products/ViewProduct";
 import AllOrders from "./Features/Admin/Components/Orders/AllOrders";
+import ViewOrder from "./Features/Admin/Components/Orders/ViewOrder";
+import EditOrder from "./Features/Admin/Components/Orders/EditOrder";
+import QuotationsHome from "./Features/Admin/Components/Quotations/QuotationsHome";
+import DiscountsPage from "./Features/Admin/Components/Quotations/DiscountsPage";
+import AllCouponsPage from "./Features/Admin/Components/Quotations/AllCouponsPage";
+import AddCoupon from "./Features/Admin/Components/Quotations/AddCoupon";
+ import ViewCoupon from "./Features/Admin/Components/Quotations/ViewCoupon";
+ import EditCoupon from "./Features/Admin/Components/Quotations/EditCoupon";
 
 
 
@@ -54,7 +62,6 @@ function App() {
 
         {/* Dashboard Routes */}
         <Route path="dashboard" element={<Dashboard />} />
-        <Route path="dashboard/quotations" element={<Quotations />} />
         <Route path="dashboard/users" element={<Users />}>
           <Route index element={<AllUsers />} />
           <Route path="add-user" element={<AddUser/>} />
@@ -69,7 +76,16 @@ function App() {
         </Route>
         <Route path="dashboard/orders" element={<Orders />} >
           <Route index element={<AllOrders />} />
-
+          <Route path="/dashboard/orders/view-order/:id" element={<ViewOrder />} />
+          <Route path="edit-order/:id" element={<EditOrder />} />
+        </Route>
+        <Route path="dashboard/quotations" element={<Quotations />} >
+          <Route index element={<QuotationsHome/>} />
+          <Route path="discounts" element={<DiscountsPage />} />
+          <Route path="coupons" element={<AllCouponsPage />} />
+          <Route path="add-coupon" element={<AddCoupon />} />
+          <Route path="/dashboard/quotations/view-coupon/:id" element={<ViewCoupon />} />
+          <Route path="/dashboard/quotations/edit-coupon/:id" element={<EditCoupon />} />
         </Route>
 
         {/* Home Route */}
