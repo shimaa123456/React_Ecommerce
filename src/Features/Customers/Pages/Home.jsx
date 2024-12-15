@@ -1,6 +1,10 @@
 
 import LogoNavbar from '../../Admin/Components/LogoNavbar';
 import Navbar from '../Components/UserNavbar';
+import HeroSection from '../Components/Home/HeroSection';
+import PopularProducts from '../Components/Home/PopularProducts';
+import SpecialOffers from '../Components/Home/SpecialOffers';
+import Footer from '../Components/Home/Footer';
 
 const HomePage = () => {
   return (
@@ -12,13 +16,24 @@ const HomePage = () => {
       {/* Secondary Navbar */}
       <Navbar />
 
-      {/* Dashboard Content */}
-      <div className="container-fluid p-4">
-        <header className="d-flex justify-content-between align-items-center mb-4">
-          <h1 className="h4">Home</h1>
-        </header>
-
+      {/* Hero Section */}
+      <div className="container-fluid p-3">
+      <HeroSection />
       </div>
+      {/* Popular Products Section */}
+      <div className="container-fluid p-3 m-3">
+          <PopularProducts /> 
+        </div>
+
+        {/* Special Offers Section */}
+        <div className="container-fluid p-3 m-3">
+          <SpecialOffers />
+        </div>
+
+        {/* Footer */}
+        <div className="container-fluid p-3">
+          <Footer />
+        </div>
     </div>
     </div>
   );

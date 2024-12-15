@@ -73,7 +73,11 @@ const EditProfile = () => {
         .then((updatedUser) => {
           sessionStorage.setItem('user', JSON.stringify(updatedUser));
           toast.success("Profile updated successfully!");
-          navigate("/dashboard");
+          if (updatedUser.role === 'admin') {
+            navigate("/dashboard"); 
+          } else {
+            navigate("/home"); 
+          }
         })
         .catch((error) => {
           console.error("Failed to update profile:", error);
