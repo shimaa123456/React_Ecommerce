@@ -65,6 +65,17 @@ export const deleteProduct = createAsyncThunk(
     }
   }
 );
+export const updateProductStock = createAsyncThunk(
+  'products/updateProductStock',
+  async (updatedProduct, { rejectWithValue }) => {
+    try {
+      const response = await axios.put(`http://localhost:4000/products/${updatedProduct.id}`, updatedProduct);
+      return response.data; // Return the updated product
+    } catch (error) {
+      return rejectWithValue(error.message || 'Failed to update product stock');
+    }
+  }
+);
 
 const productsSlice = createSlice({
   name: 'products',
@@ -129,7 +140,17 @@ const productsSlice = createSlice({
       })
       .addCase(deleteProduct.rejected, (state, action) => {
         state.error = action.payload;
-      });
+      })
+      // Handle update product stock
+    .addCase(updateProductStock.fulfilled, (state, action) => {
+      const index = state.products.findIndex((product) => product.id === action.payload.id);
+      if (index !== -1) {
+        state.products[index] = action.payload;
+      }
+    })
+    .addCase(updateProductStock.rejected, (state, action) => {
+      state.error = action.payload;
+    });
   },
 });
 

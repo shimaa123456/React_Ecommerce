@@ -1,12 +1,24 @@
 import { useState, useEffect } from "react";
-import { faBox, faShoppingCart, faTruck, faFileAlt, faShoppingBasket, faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBox, faShoppingCart, faTruck, faShoppingBasket, faBars, faTimes, faEye } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link, useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProducts } from "../../Admin/Components/AdminRedux/ProductsSlice";
 
 const UserNavbar = () => {
   const location = useLocation();
+  const dispatch = useDispatch();
   const [activeItem, setActiveItem] = useState("null");
-  const [isSidebarVisible, setIsSidebarVisible] = useState(false); // Sidebar visibility
+  const [isSidebarVisible, setIsSidebarVisible] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchSubmitted, setSearchSubmitted] = useState(false);
+
+  const { products } = useSelector((state) => state.products);
+
+  // Fetch products when the component mounts
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, [dispatch]);
 
   // Update the active item based on the URL path
   useEffect(() => {
@@ -17,8 +29,6 @@ const UserNavbar = () => {
       setActiveItem("products");
     } else if (path.includes("cart")) {
       setActiveItem("cart");
-    } else if (path.includes("checkout")) {
-      setActiveItem("checkout");
     } else if (path.includes("orderhistory")) {
       setActiveItem("orderhistory");
     }
@@ -29,13 +39,34 @@ const UserNavbar = () => {
     setIsSidebarVisible(false); // Close the sidebar after clicking an item
   };
 
-  const toggleSidebar = () => setIsSidebarVisible(!isSidebarVisible); // Toggle sidebar visibility
+  const toggleSidebar = () => setIsSidebarVisible(!isSidebarVisible);
+
+  const handleSearchChange = (e) => setSearchQuery(e.target.value);
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    setSearchSubmitted(true);
+  };
+
+  const handleClearSearchResults = () => {
+    setSearchQuery("");
+    setSearchSubmitted(false);
+  };
+
+  const filteredProducts = searchSubmitted
+    ? searchQuery === ""  // Check if search query is empty
+      ? []
+      : products.filter(
+          (product) =>
+            product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            product.category.toLowerCase().includes(searchQuery.toLowerCase())
+        )
+    : [];
 
   return (
     <nav className="navbar navbar-light bg-white px-4 border-bottom" style={{ borderBottom: "2px solid #4B7BAF" }}>
-      {/* Navbar Items */}
       <div className="d-flex justify-content-between w-100 align-items-center">
-        {/* Hamburger Icon (for smaller screens) */}
+        {/* Hamburger Icon */}
         <button
           className="navbar-toggler d-lg-none position-absolute"
           type="button"
@@ -54,7 +85,6 @@ const UserNavbar = () => {
             { key: "home", label: "Home", icon: faBox, path: "/home" },
             { key: "products", label: "Products", icon: faShoppingCart, path: "/products" },
             { key: "cart", label: "Cart", icon: faTruck, path: "/cart" },
-            { key: "checkout", label: "Checkout", icon: faFileAlt, path: "/checkout" },
             { key: "orderhistory", label: "Order History", icon: faShoppingBasket, path: "/orderhistory" },
           ].map((item) => (
             <li className="nav-item me-4" key={item.key}>
@@ -67,6 +97,7 @@ const UserNavbar = () => {
                   paddingBottom: "10px",
                   position: "relative",
                   fontSize: "1rem",
+                  fontWeight: activeItem === item.key ? "bold" : "normal",  // Bold active item
                 }}
               >
                 <FontAwesomeIcon icon={item.icon} className="me-2" />
@@ -89,12 +120,14 @@ const UserNavbar = () => {
         </ul>
 
         {/* Search Form */}
-        <form className="d-flex ms-auto d-block">
+        <form className="d-flex ms-auto d-block" onSubmit={handleSearchSubmit}>
           <input
             className="form-control me-2"
             type="search"
-            placeholder="Search"
+            placeholder="Search products"
             aria-label="Search"
+            value={searchQuery}
+            onChange={handleSearchChange}
           />
           <button className="btn btn-outline-primary" type="submit">
             Search
@@ -119,7 +152,6 @@ const UserNavbar = () => {
               { key: "home", label: "Home", icon: faBox, path: "/home" },
               { key: "products", label: "Products", icon: faShoppingCart, path: "/products" },
               { key: "cart", label: "Cart", icon: faTruck, path: "/cart" },
-              { key: "checkout", label: "Checkout", icon: faFileAlt, path: "/checkout" },
               { key: "orderhistory", label: "Order History", icon: faShoppingBasket, path: "/orderhistory" },
             ].map((item) => (
               <li className="nav-item mb-3" key={item.key}>
@@ -132,6 +164,7 @@ const UserNavbar = () => {
                     paddingBottom: "10px",
                     fontSize: "1rem",
                     position: "relative",
+                    fontWeight: activeItem === item.key ? "bold" : "normal", // Bold active item
                   }}
                 >
                   <FontAwesomeIcon icon={item.icon} className="me-2" />
@@ -143,49 +176,67 @@ const UserNavbar = () => {
         </div>
       )}
 
-      {/* Inline Styles */}
-      <style>
-        {`
-          .nav-item .nav-link {
-            transition: all 0.3s ease;
-          }
-          .nav-item .nav-link:hover {
-            color: #2a507a;
-          }
-          .nav-item .nav-link.active-nav-item {
-            font-weight: bold;
-            color: #4B7BAF;
-          }
+      {/* Search Results Sidebar */}
+      {searchSubmitted && (
+        <div
+          className="sidebar bg-white position-absolute w-100"
+          style={{
+            top: "60px",
+            left: 0,
+            padding: "20px",
+            boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+            zIndex: 1000,
+          }}
+        >
+          <button
+            className="btn btn-sm btn-danger mb-3"
+            onClick={handleClearSearchResults}
+            style={{ position: "absolute", top: "20px", right: "20px" }}
+          >
+            <FontAwesomeIcon icon={faTimes} />
+          </button>
 
-          @media (max-width: 991.98px) {
-            .sidebar {
-              display: block;
-              position: absolute;
-              top: 60px;
-              left: 0;
-              background-color: #fff;
-              width: 100%;
-              z-index: 1000;
-            }
-            .sidebar ul {
-              padding-left: 0;
-              margin: 0;
-            }
-          }
+          <h5 className="search-results-heading">Search Results</h5>
 
-          @media (min-width: 991.98px) {
-            .sidebar {
-              display: none;
-            }
-          }
-
-          @media (max-width: 415px) {
-            .navbar .d-flex.ms-auto {
-              display: none;
-            }
-          }
-        `}
-      </style>
+          {searchQuery === "" ? (
+            <p className="no-results-text">No query entered</p>
+          ) : filteredProducts.length > 0 ? (
+            <ul className="list-group">
+              {filteredProducts.map((product) => (
+                <li className="list-group-item" key={product.id}>
+                  <div className="d-flex align-items-center">
+                    <img
+                      src={product.thumbnail}
+                      alt={product.title}
+                      style={{ width: "40px", height: "40px", objectFit: "cover" }}
+                      className="me-2"
+                    />
+                    <div>
+                      <strong style={{ color: "#86A7DA" }}>{product.title}</strong>
+                      <p className="mb-0 text-muted">{product.category}</p>
+                    </div>
+                    <Link
+                      to={`/products/view-product/${product.id}`}
+                      className="btn btn-sm"
+                      style={{
+                        backgroundColor: "#F79420",
+                        color: "#fff",
+                        marginLeft: "auto",
+                      }}
+                      onClick={handleClearSearchResults}
+                    >
+                      <FontAwesomeIcon icon={faEye} />
+                      View
+                    </Link>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="no-results-text">No products found</p>
+          )}
+        </div>
+      )}
     </nav>
   );
 };

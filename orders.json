@@ -53,58 +53,6 @@
       ]
     },
     {
-      "id": "2",
-      "userId": "50da",
-      "status": "pending",
-      "total": 200,
-      "tax": 30,
-      "discount": 20,
-      "coupon": "WINTER2024",
-      "paymentMethod": "PayPal",
-      "shippingMethod": "Express Shipping",
-      "createdAt": "2024-12-12T14:30:00",
-      "isCompleted": false,
-      "products": [
-        {
-          "id": "2",
-          "title": "Nivea Soft Moisturizing Cream",
-          "description": "A hydrating moisturizer enriched with Vitamin E and jojoba oil.",
-          "category": "beauty",
-          "price": 12.99,
-          "discountPercentage": 10,
-          "stock": 10,
-          "tags": [
-            "moisturizer",
-            "beauty",
-            "skincare"
-          ],
-          "thumbnail": "https://cdn.dummyjson.com/NiveaSoftMoisturizingCream/thumbnail.png",
-          "images": [
-            "https://cdn.dummyjson.com/NiveaSoftMoisturizingCream/image1.png",
-            "https://cdn.dummyjson.com/NiveaSoftMoisturizingCream/image2.png"
-          ],
-          "rating": 4.85,
-          "brand": "Nivea",
-          "sku": "NIV1234",
-          "weight": 5,
-          "dimensions": {
-            "width": 5,
-            "height": 12,
-            "length": 5
-          },
-          "warrantyInformation": "6 months warranty",
-          "shippingInformation": "Ships within 2 weeks",
-          "availabilityStatus": "In Stock",
-          "returnPolicy": "30 days return policy",
-          "minimumOrderQuantity": 5,
-          "meta": {
-            "color": "white",
-            "material": "plastic"
-          }
-        }
-      ]
-    },
-    {
       "id": "3",
       "userId": "95e1",
       "status": "completed",
@@ -261,58 +209,6 @@
       ]
     },
     {
-      "id": "6",
-      "userId": "6e62",
-      "status": "completed",
-      "total": 110,
-      "tax": 16.5,
-      "discount": 5,
-      "coupon": "SPRING2024",
-      "paymentMethod": "Debit Card",
-      "shippingMethod": "Standard Shipping",
-      "createdAt": "2024-12-15T12:00:00",
-      "isCompleted": true,
-      "products": [
-        {
-          "id": "2",
-          "title": "Nivea Soft Moisturizing Cream",
-          "description": "A hydrating moisturizer enriched with Vitamin E and jojoba oil.",
-          "category": "beauty",
-          "price": 12.99,
-          "discountPercentage": 10,
-          "stock": 10,
-          "tags": [
-            "moisturizer",
-            "beauty",
-            "skincare"
-          ],
-          "thumbnail": "https://cdn.dummyjson.com/NiveaSoftMoisturizingCream/thumbnail.png",
-          "images": [
-            "https://cdn.dummyjson.com/NiveaSoftMoisturizingCream/image1.png",
-            "https://cdn.dummyjson.com/NiveaSoftMoisturizingCream/image2.png"
-          ],
-          "rating": 4.85,
-          "brand": "Nivea",
-          "sku": "NIV1234",
-          "weight": 5,
-          "dimensions": {
-            "width": 5,
-            "height": 12,
-            "length": 5
-          },
-          "warrantyInformation": "6 months warranty",
-          "shippingInformation": "Ships within 2 weeks",
-          "availabilityStatus": "In Stock",
-          "returnPolicy": "30 days return policy",
-          "minimumOrderQuantity": 5,
-          "meta": {
-            "color": "white",
-            "material": "plastic"
-          }
-        }
-      ]
-    },
-    {
       "id": "7",
       "userId": "85d6",
       "status": "completed",
@@ -361,6 +257,366 @@
             "color": "black",
             "material": "plastic"
           }
+        }
+      ]
+    },
+    {
+      "id": "c8da",
+      "userId": "50da",
+      "status": "pending",
+      "total": 209.94,
+      "tax": 31.491,
+      "discount": 0,
+      "coupon": "",
+      "paymentMethod": "Credit Card",
+      "shippingMethod": "Express Shipping",
+      "createdAt": "2024-12-16T06:19:26.831Z",
+      "isCompleted": false,
+      "products": [
+        {
+          "id": "33",
+          "title": "Mulberry",
+          "description": "Sweet and juicy mulberries, perfect for snacking or adding to desserts and cereals.",
+          "category": "groceries",
+          "price": 4.99,
+          "discountPercentage": 16.35,
+          "rating": 3.19,
+          "stock": 79,
+          "tags": [
+            "fruits"
+          ],
+          "sku": "0M1K7RRC",
+          "weight": 4,
+          "dimensions": {
+            "width": 11.12,
+            "height": 27.3,
+            "depth": 27.57
+          },
+          "warrantyInformation": "3 months warranty",
+          "shippingInformation": "Ships in 1 month",
+          "availabilityStatus": "In Stock",
+          "reviews": [
+            {
+              "rating": 5,
+              "comment": "Very satisfied!",
+              "date": "2024-05-23T08:56:21.621Z",
+              "reviewerName": "Leah Henderson",
+              "reviewerEmail": "leah.henderson@x.dummyjson.com"
+            },
+            {
+              "rating": 1,
+              "comment": "Not as described!",
+              "date": "2024-05-23T08:56:21.621Z",
+              "reviewerName": "Leah Hughes",
+              "reviewerEmail": "leah.hughes@x.dummyjson.com"
+            },
+            {
+              "rating": 5,
+              "comment": "Great product!",
+              "date": "2024-05-23T08:56:21.621Z",
+              "reviewerName": "Carter Baker",
+              "reviewerEmail": "carter.baker@x.dummyjson.com"
+            }
+          ],
+          "returnPolicy": "60 days return policy",
+          "minimumOrderQuantity": 50,
+          "meta": {
+            "createdAt": "2024-05-23T08:56:21.621Z",
+            "updatedAt": "2024-05-23T08:56:21.621Z",
+            "barcode": "3327790147313",
+            "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+          },
+          "images": [
+            "https://cdn.dummyjson.com/products/images/groceries/Mulberry/1.png"
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Mulberry/thumbnail.png",
+          "quantity": 2
+        },
+        {
+          "id": "47",
+          "title": "Table Lamp",
+          "description": "The Table Lamp is a functional and decorative lighting solution for your living space. With a modern design, it provides both ambient and task lighting, enhancing the atmosphere.",
+          "category": "home-decoration",
+          "price": 49.99,
+          "discountPercentage": 0.59,
+          "rating": 4.56,
+          "stock": 84,
+          "tags": [
+            "home decor",
+            "lighting"
+          ],
+          "sku": "0K9UDIUB",
+          "weight": 2,
+          "dimensions": {
+            "width": 29.6,
+            "height": 19.68,
+            "depth": 10.12
+          },
+          "warrantyInformation": "1 year warranty",
+          "shippingInformation": "Ships in 2 weeks",
+          "availabilityStatus": "In Stock",
+          "reviews": [
+            {
+              "rating": 3,
+              "comment": "Not worth the price!",
+              "date": "2024-05-23T08:56:21.621Z",
+              "reviewerName": "Mateo Nguyen",
+              "reviewerEmail": "mateo.nguyen@x.dummyjson.com"
+            },
+            {
+              "rating": 5,
+              "comment": "Very satisfied!",
+              "date": "2024-05-23T08:56:21.621Z",
+              "reviewerName": "James Garcia",
+              "reviewerEmail": "james.garcia@x.dummyjson.com"
+            },
+            {
+              "rating": 1,
+              "comment": "Waste of money!",
+              "date": "2024-05-23T08:56:21.621Z",
+              "reviewerName": "Henry Turner",
+              "reviewerEmail": "henry.turner@x.dummyjson.com"
+            }
+          ],
+          "returnPolicy": "30 days return policy",
+          "minimumOrderQuantity": 10,
+          "meta": {
+            "createdAt": "2024-05-23T08:56:21.621Z",
+            "updatedAt": "2024-05-23T08:56:21.621Z",
+            "barcode": "7764806947768",
+            "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+          },
+          "images": [
+            "https://cdn.dummyjson.com/products/images/home-decoration/Table%20Lamp/1.png"
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/products/images/home-decoration/Table%20Lamp/thumbnail.png",
+          "quantity": 4
+        }
+      ]
+    },
+    {
+      "id": "daa9",
+      "userId": "6e62",
+      "status": "pending",
+      "total": 38.204,
+      "tax": 6.744,
+      "discount": 13.5,
+      "coupon": "SHIMAA",
+      "paymentMethod": "Credit Card",
+      "shippingMethod": "Express Shipping",
+      "createdAt": "2024-12-16T08:35:30.292Z",
+      "isCompleted": false,
+      "products": [
+        {
+          "id": "1",
+          "title": "Essence Mascara Lash Princess",
+          "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
+          "category": "beauty",
+          "price": 9.99,
+          "discountPercentage": 12.8,
+          "stock": 5,
+          "tags": [
+            "essence",
+            "mascara",
+            "lash",
+            "princess"
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png",
+          "images": [
+            "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png"
+          ],
+          "rating": 4.94,
+          "brand": "Essence",
+          "sku": "RCH45Q1A",
+          "weight": 2,
+          "dimensions": {
+            "width": 23.17,
+            "height": 14.43,
+            "depth": 28.01
+          },
+          "warrantyInformation": "1 month warranty",
+          "shippingInformation": "Ships in 1 month",
+          "availabilityStatus": "Low Stock",
+          "returnPolicy": "30 days return policy",
+          "minimumOrderQuantity": 24,
+          "meta": {
+            "createdAt": "2024-05-23T08:56:21.618Z",
+            "updatedAt": "2024-05-23T08:56:21.618Z",
+            "barcode": "9164035109868",
+            "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+          },
+          "quantity": 3
+        },
+        {
+          "id": "3",
+          "title": "Powder Canister",
+          "description": "The Powder Canister is a finely milled setting powder designed to set makeup and control shine. With a lightweight and translucent formula, it provides a smooth and matte finish.",
+          "category": "beauty",
+          "price": 14.99,
+          "discountPercentage": 18,
+          "rating": 3.82,
+          "stock": 59,
+          "tags": [
+            "beauty",
+            "face powder"
+          ],
+          "brand": "Velvet Touch",
+          "sku": "9EN8WLT2",
+          "weight": 8,
+          "dimensions": {
+            "width": 24.16,
+            "height": 10.7,
+            "depth": 11.07
+          },
+          "warrantyInformation": "2 year warranty",
+          "shippingInformation": "Ships in 1-2 business days",
+          "availabilityStatus": "In Stock",
+          "reviews": [
+            {
+              "rating": 5,
+              "comment": "Very happy with my purchase!",
+              "date": "2024-05-23T08:56:21.618Z",
+              "reviewerName": "Ethan Thompson",
+              "reviewerEmail": "ethan.thompson@x.dummyjson.com"
+            },
+            {
+              "rating": 4,
+              "comment": "Great value for money!",
+              "date": "2024-05-23T08:56:21.618Z",
+              "reviewerName": "Levi Hicks",
+              "reviewerEmail": "levi.hicks@x.dummyjson.com"
+            },
+            {
+              "rating": 5,
+              "comment": "Highly impressed!",
+              "date": "2024-05-23T08:56:21.618Z",
+              "reviewerName": "Hazel Gardner",
+              "reviewerEmail": "hazel.gardner@x.dummyjson.com"
+            }
+          ],
+          "returnPolicy": "60 days return policy",
+          "minimumOrderQuantity": 25,
+          "meta": {
+            "createdAt": "2024-05-23T08:56:21.618Z",
+            "updatedAt": "2024-05-23T08:56:21.618Z",
+            "barcode": "0516267971277",
+            "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+          },
+          "images": [
+            "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/1.png"
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Powder%20Canister/thumbnail.png",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "5c70",
+      "userId": "6e62",
+      "status": "pending",
+      "total": 11.4885,
+      "tax": 1.4985,
+      "discount": 0,
+      "coupon": "",
+      "paymentMethod": "PayPal",
+      "shippingMethod": "Standard Shipping",
+      "createdAt": "2024-12-16T09:12:40.940Z",
+      "isCompleted": false,
+      "products": [
+        {
+          "id": "1",
+          "title": "Essence Mascara Lash Princess",
+          "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
+          "category": "beauty",
+          "price": 9.99,
+          "discountPercentage": 12.8,
+          "stock": 5,
+          "tags": [
+            "essence",
+            "mascara",
+            "lash",
+            "princess"
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png",
+          "images": [
+            "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png"
+          ],
+          "rating": 4.94,
+          "brand": "Essence",
+          "sku": "RCH45Q1A",
+          "weight": 2,
+          "dimensions": {
+            "width": 23.17,
+            "height": 14.43,
+            "depth": 28.01
+          },
+          "warrantyInformation": "1 month warranty",
+          "shippingInformation": "Ships in 1 month",
+          "availabilityStatus": "Low Stock",
+          "returnPolicy": "30 days return policy",
+          "minimumOrderQuantity": 24,
+          "meta": {
+            "createdAt": "2024-05-23T08:56:21.618Z",
+            "updatedAt": "2024-05-23T08:56:21.618Z",
+            "barcode": "9164035109868",
+            "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "ab16",
+      "userId": "6e62",
+      "status": "pending",
+      "total": 45.954,
+      "tax": 5.994,
+      "discount": 0,
+      "coupon": "",
+      "paymentMethod": "Credit Card",
+      "shippingMethod": "Standard Shipping",
+      "createdAt": "2024-12-16T09:16:48.964Z",
+      "isCompleted": false,
+      "products": [
+        {
+          "id": "1",
+          "title": "Essence Mascara Lash Princess",
+          "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
+          "category": "beauty",
+          "price": 9.99,
+          "discountPercentage": 12.8,
+          "stock": 4,
+          "tags": [
+            "essence",
+            "mascara",
+            "lash",
+            "princess"
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png",
+          "images": [
+            "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png"
+          ],
+          "rating": 4.94,
+          "brand": "Essence",
+          "sku": "RCH45Q1A",
+          "weight": 2,
+          "dimensions": {
+            "width": 23.17,
+            "height": 14.43,
+            "depth": 28.01
+          },
+          "warrantyInformation": "1 month warranty",
+          "shippingInformation": "Ships in 1 month",
+          "availabilityStatus": "Low Stock",
+          "returnPolicy": "30 days return policy",
+          "minimumOrderQuantity": 24,
+          "meta": {
+            "createdAt": "2024-05-23T08:56:21.618Z",
+            "updatedAt": "2024-05-23T08:56:21.618Z",
+            "barcode": "9164035109868",
+            "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+          },
+          "quantity": 4
         }
       ]
     }
