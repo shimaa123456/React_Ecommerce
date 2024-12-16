@@ -1,35 +1,30 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import PropTypes from "prop-types";
 import ProductCard from "./productItem";
-import Pagination from "./pagination";  // Import the Pagination component
-import '../../../styles/productCard.css';
+import Pagination from "./pagination"; 
+import { fetchProducts } from "../../Admin/Components/AdminRedux/ProductsSlice"; 
+import "../../../styles/productCard.css";
 
 const Data = ({ selectedCategory }) => {
-  const [data, setData] = useState([]);
+  const dispatch = useDispatch();
+  const { products, loading } = useSelector((state) => state.products); 
   const [filteredData, setFilteredData] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const [sortOption, setSortOption] = useState("relavent");  // State to handle sort option
+  const [sortOption, setSortOption] = useState("relavent");
   const itemsPerPage = 12;
 
-  // Fetch data when component mounts
   useEffect(() => {
-    fetch("https://dummyjson.com/products?limit=194")
-      .then((response) => response.json())
-      .then((data) => {
-        setData(data.products);
-        setFilteredData(data.products);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error loading data:", error);
-        setLoading(false);
-      });
-  }, []);
+    // Dispatch the thunk to fetch products
+    dispatch(fetchProducts());
+  }, [dispatch]);
 
-  // Update filtered data when selectedCategory or sortOption changes
   useEffect(() => {
-    let sortedData = [...data];
-    
+    let sortedData = [...products];
+
+    // Filter out products with stock = 0
+    sortedData = sortedData.filter((item) => item.stock > 0);
+
     if (selectedCategory !== "all") {
       sortedData = sortedData.filter((item) => item.category === selectedCategory);
     }
@@ -44,8 +39,8 @@ const Data = ({ selectedCategory }) => {
     }
 
     setFilteredData(sortedData);
-    setCurrentPage(1);  // Reset to the first page when filtering or sorting
-  }, [selectedCategory, sortOption, data]);
+    setCurrentPage(1); // Reset to the first page when filtering or sorting
+  }, [selectedCategory, sortOption, products]);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -67,7 +62,7 @@ const Data = ({ selectedCategory }) => {
     <div className="container mt-4">
       <div className="row">
         <div className="col-md-10">
-          <div className="d-flex justify-content-between  align-items-between text-base mb-4 ">
+          <div className="d-flex justify-content-between align-items-between text-base mb-4">
             <h1>{selectedCategory === "all" ? "All Collection" : selectedCategory}</h1>
             <select
               className="form-select form-select-sm border-2 rounded border-gray-300 w-auto"
@@ -90,7 +85,7 @@ const Data = ({ selectedCategory }) => {
           </div>
 
           {/* Include the Pagination component */}
-          <Pagination 
+          <Pagination
             currentPage={currentPage}
             totalPages={totalPages}
             onPageChange={handlePageChange}
@@ -99,6 +94,10 @@ const Data = ({ selectedCategory }) => {
       </div>
     </div>
   );
+};
+
+Data.propTypes = {
+  selectedCategory: PropTypes.string.isRequired,
 };
 
 export default Data;

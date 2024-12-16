@@ -6,7 +6,7 @@
       "description": "Summer Sale 2024 - Get 10% off on beauty products",
       "discountPercentage": 10,
       "startDate": "2024-06-01T00:00:00",
-      "endDate": "2024-08-31T23:59:59",
+      "endDate": "2024-12-31T23:59:59",
       "isActive": true,
       "usageLimit": 1000,
       "applicableCategories": [

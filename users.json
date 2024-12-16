@@ -62,6 +62,15 @@
       "phone": "01202445567",
       "role": "admin",
       "image": "https://randomuser.me/api/portraits/women/12.jpg"
+    },
+    {
+      "id": "79f0",
+      "name": "Iliana Knight",
+      "email": "lerymukup@mailinator.com",
+      "password": "Pa$$w0rd!",
+      "phone": "01002344094",
+      "image": "https://randomuser.me/api/portraits/men/3.jpg",
+      "role": "user"
     }
   ]
 }

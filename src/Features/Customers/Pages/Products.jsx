@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import LogoNavbar from '../../Admin/Components/LogoNavbar';
 import Sidebar from '../Components/aside';
 import Navbar from '../Components/UserNavbar';
@@ -7,8 +7,8 @@ import '../../../styles/productCard.css';
 
 
 const UserProductsPage = () => {
-    const [selectedCategory, setSelectedCategory] = useState("all"); // إدارة الفئة المختارة
-    const pageTitle = selectedCategory === "all" ? "All Collection" : `${selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)} Collection`;
+    const [selectedCategory, setSelectedCategory] = useState("all"); 
+    
 
     return (
         <div className="bg-light min-vh-100">
@@ -31,17 +31,9 @@ const UserProductsPage = () => {
 
                         {/* Collection on the right */}
                         <div className="col-md-10 ">
-                            <div className="d-flex justify-content-between text-base mb-4">
-                            {/* <h1>{pageTitle}</h1> */}
-                            {/* <select className="form-select form-select-sm border-2 border-gray-300 w-auto">
-                                    <option value="relavent">Sort by Relevant</option>
-                                    <option value="low-high">Sort by Low to High</option>
-                                    <option value="high-low">Sort by High to Low</option>
-                                </select> */}
-                            </div>
                             {/* Pass selectedCategory to Data */}
-                            <div className='showdata '>
-                            <Data selectedCategory={selectedCategory} />
+                            <div className="showdata">
+                                <Data selectedCategory={selectedCategory} />
                             </div>
                         </div>
                     </div>

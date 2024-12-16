@@ -92,7 +92,7 @@ function App() {
       <Route path="home" element={<Home />} />
         <Route path="products" element={<UserProducts />} />
         <Route path="cart" element={<Cart />} />
-        <Route path="checkout" element={<Checkout />} />
+        <Route path="cart/checkout" element={<Checkout />} />
         <Route path="orderhistory" element={<OrderHistory />} />
       </Routes>
     </BrowserRouter>

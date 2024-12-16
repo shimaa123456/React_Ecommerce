@@ -5,6 +5,7 @@ import usersReducer from './Features/Admin/Components/AdminRedux/UsersSlice';
 import productsReducer from './Features/Admin/Components/AdminRedux/ProductsSlice';
 import ordersSlice from './Features/Admin/Components/AdminRedux/OrdersSlice';
 import couponsSlice from './Features/Admin/Components/AdminRedux/CouponsSlice';
+import cartSlice from './Features/Admin/Components/AdminRedux/CartSlice';
 const store = configureStore({
   reducer: {
     login: loginReducer,
@@ -13,6 +14,7 @@ const store = configureStore({
     products: productsReducer,
     orders: ordersSlice,
     coupons: couponsSlice,
+    cart: cartSlice,
   },
 });
 export default store;
