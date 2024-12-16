@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { toast } from "react-toastify";
 
+
 const CartPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
