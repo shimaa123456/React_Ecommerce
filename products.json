@@ -18,18 +18,7 @@
       "images": [
         "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png"
       ],
-      "rating": 4,
-      "brand": "Essence",
-      "sku": "RCH45Q1A",
-      "weight": 2,
-      "dimensions": {
-        "width": 23.17,
-        "height": 14.43,
-        "depth": 28.01
-      },
-      "warrantyInformation": "1 month warranty",
-      "shippingInformation": "Ships in 1 month",
-      "availabilityStatus": "Low Stock",
+      "rating": 2.75,
       "reviews": [
         {
           "rating": 4,
@@ -53,20 +42,24 @@
           "reviewerEmail": "elena.baker@x.dummyjson.com"
         },
         {
-          "rating": 5,
-          "comment": "satisfied",
-          "reviewerName": "Elton Richmond",
-          "reviewerEmail": "mijidofuvi@mailinator.com",
-          "date": "2024-12-16T16:27:16.494Z"
-        },
-        {
-          "rating": 5,
-          "comment": "satisfied",
-          "reviewerName": "Elton Richmond",
-          "reviewerEmail": "mijidofuvi@mailinator.com",
-          "date": "2024-12-16T16:28:01.446Z"
+          "rating": 1,
+          "comment": "Bad",
+          "reviewerName": "Kejer Richard",
+          "reviewerEmail": "kejer@mailinator.com",
+          "date": "2024-12-16T22:29:53.779Z"
         }
       ],
+      "brand": "Essence",
+      "sku": "RCH45Q1A",
+      "weight": 2,
+      "dimensions": {
+        "width": 23.17,
+        "height": 14.43,
+        "depth": 28.01
+      },
+      "warrantyInformation": "1 month warranty",
+      "shippingInformation": "Ships in 1 month",
+      "availabilityStatus": "Low Stock",
       "returnPolicy": "30 days return policy",
       "minimumOrderQuantity": 24,
       "meta": {
@@ -74,8 +67,7 @@
         "updatedAt": "2024-05-23T08:56:21.618Z",
         "barcode": "9164035109868",
         "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
-      },
-      "quantity": 4
+      }
     },
     {
       "id": "2",
@@ -203,7 +195,7 @@
       "description": "The Red Lipstick is a classic and bold choice for adding a pop of color to your lips. With a creamy and pigmented formula, it provides a vibrant and long-lasting finish.",
       "category": "beauty",
       "price": 12.99,
-      "discountPercentage": 19.03,
+      "discountPercentage": 10,
       "rating": 2.51,
       "stock": 68,
       "tags": [
@@ -5286,7 +5278,7 @@
       "price": 79.99,
       "discountPercentage": 11.4,
       "rating": 4.01,
-      "stock": 14,
+      "stock": 13,
       "tags": [
         "footwear",
         "sports cleats"
@@ -5339,7 +5331,8 @@
         "https://cdn.dummyjson.com/products/images/mens-shoes/Nike%20Baseball%20Cleats/3.png",
         "https://cdn.dummyjson.com/products/images/mens-shoes/Nike%20Baseball%20Cleats/4.png"
       ],
-      "thumbnail": "https://cdn.dummyjson.com/products/images/mens-shoes/Nike%20Baseball%20Cleats/thumbnail.png"
+      "thumbnail": "https://cdn.dummyjson.com/products/images/mens-shoes/Nike%20Baseball%20Cleats/thumbnail.png",
+      "quantity": 1
     },
     {
       "id": "90",

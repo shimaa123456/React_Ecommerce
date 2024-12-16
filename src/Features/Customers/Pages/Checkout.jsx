@@ -34,9 +34,10 @@ const CheckoutPage = () => {
     };
   };
 
-  const calculateCartTotal = () => {
+  const calculateCartTotalAfterDiscount = () => {
     return cart.reduce((total, product) => {
-      return total + (product.price * product.quantity);
+      const { discountedPrice } = calculateProductDiscount(product);
+      return total + (discountedPrice * product.quantity);
     }, 0);
   };
 
@@ -47,10 +48,10 @@ const CheckoutPage = () => {
     }, 0);
   };
 
-  const cartTotal = calculateCartTotal();
+  const cartTotalAfterDiscount = calculateCartTotalAfterDiscount();
   const totalDiscount = calculateTotalDiscount();
   const TAX_RATE = 0.15;
-  const tax = cartTotal * TAX_RATE;
+  const tax = cartTotalAfterDiscount * TAX_RATE;
 
   const handleApplyCoupon = () => {
     const coupon = coupons.find((coupon) => coupon.title === couponCode);
@@ -78,47 +79,14 @@ const CheckoutPage = () => {
     setDiscount(coupon.discountPercentage);
   };
 
-  // const handleCompleteOrder = async () => {
-  //   if (!paymentMethod || !shippingMethod) {
-  //     alert("Please select both payment and shipping methods.");
-  //     return;
-  //   }
-
-  //   const finalPrice = cartTotal + tax - discount;
-
-  //   const newOrder = {
-  //     userId: user.id,
-  //     status: "pending",
-  //     total: finalPrice,
-  //     tax: tax,
-  //     discount: discount,
-  //     coupon: couponCode,
-  //     paymentMethod,
-  //     shippingMethod,
-  //     createdAt: new Date().toISOString(),
-  //     isCompleted: false,
-  //     products: cart,
-  //   };
-
-  //   try {
-  //     await dispatch(addOrder(newOrder));
-  //     await dispatch(clearCart({ userId: user.id }));
-  //     alert("Order placed successfully!");
-  //     navigate("/orderhistory");
-  //   } catch (error) {
-  //     console.error("Failed to complete order:", error);
-  //     alert("Failed to complete the order. Please try again.");
-  //   }
-  // };
-
   const handleCompleteOrder = async () => {
     if (!paymentMethod || !shippingMethod) {
       alert("Please select both payment and shipping methods.");
       return;
     }
-  
-    const finalPrice = cartTotal + tax - discount;
-  
+
+    const finalPrice = cartTotalAfterDiscount + tax - discount;
+
     const newOrder = {
       userId: user.id,
       status: "pending",
@@ -132,16 +100,15 @@ const CheckoutPage = () => {
       isCompleted: false,
       products: cart,
     };
-  
+
     try {
       await dispatch(addOrder(newOrder));
-  
-      // Update the stock of each product in the cart
+
       for (let product of cart) {
         const updatedProduct = { ...product, stock: product.stock - product.quantity };
         await dispatch(updateProductStock(updatedProduct));
       }
-  
+
       await dispatch(clearCart({ userId: user.id }));
       alert("Order placed successfully!");
       navigate("/orderhistory");
@@ -150,7 +117,6 @@ const CheckoutPage = () => {
       alert("Failed to complete the order. Please try again.");
     }
   };
-  
 
   return (
     <div className="bg-light min-vh-100">
@@ -160,17 +126,16 @@ const CheckoutPage = () => {
         <div className="container mt-5">
           <h1 className="text-center mb-4" style={{ color: "#6B94D3" }}>Checkout</h1>
           <div className="row">
-            {/* Left Column - Order Summary + Product List */}
             <div className="col-md-6">
               <div className="card shadow-sm p-4 mb-4">
                 <h3 className="card-title" style={{ color: "#F79420" }}>Order Summary</h3>
                 <p><strong>Total Items:</strong> {cart.reduce((acc, product) => acc + product.quantity, 0)}</p>
-                <p><strong>Total Price (Before Discount):</strong> ${cartTotal.toFixed(2)}</p>
+                <p><strong>Total Price (Before Discount):</strong> ${(cartTotalAfterDiscount + totalDiscount).toFixed(2)}</p>
                 <p><strong>Total Discount:</strong> -${totalDiscount.toFixed(2)}</p>
                 <p><strong>Tax (15%):</strong> ${tax.toFixed(2)}</p>
                 <p><strong>Coupon Discount:</strong> -${discount.toFixed(2)}</p>
                 <hr />
-                <p><strong>Final Price:</strong> ${(cartTotal + tax - discount).toFixed(2)}</p>
+                <p><strong>Final Price:</strong> ${(cartTotalAfterDiscount + tax - discount).toFixed(2)}</p>
               </div>
 
               <div className="card shadow-sm p-4 mb-4">
@@ -191,12 +156,10 @@ const CheckoutPage = () => {
               </div>
             </div>
 
-            {/* Right Column - Checkout Form */}
             <div className="col-md-6">
               <div className="card shadow-sm p-4">
                 <h3 className="card-title" style={{ color: "#F79420" }}>Checkout Details</h3>
                 <form>
-                  {/* Payment Method */}
                   <div className="mb-3">
                     <label className="form-label">Payment Method</label>
                     <select
@@ -211,7 +174,6 @@ const CheckoutPage = () => {
                     </select>
                   </div>
 
-                  {/* Shipping Method */}
                   <div className="mb-3">
                     <label className="form-label">Shipping Method</label>
                     <select
@@ -225,7 +187,6 @@ const CheckoutPage = () => {
                     </select>
                   </div>
 
-                  {/* Coupon Code */}
                   <div className="mb-3">
                     <label className="form-label">Coupon Code</label>
                     <div className="input-group">
@@ -247,7 +208,6 @@ const CheckoutPage = () => {
                     </div>
                   </div>
 
-                  {/* Complete Order */}
                   <button
                     type="button"
                     className="btn btn-success w-100"

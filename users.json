@@ -6,7 +6,7 @@
       "email": "ahmed@gmail.com",
       "phone": "01534567895",
       "image": "https://randomuser.me/api/portraits/men/33.jpg",
-      "password": ";6;g-krWu52'T5f",
+      "password": ";6;g-krWu52'T52",
       "role": "admin"
     },
     {
@@ -16,15 +16,6 @@
       "phone": "01002344094",
       "image": "https://randomuser.me/api/portraits/men/1.jpg",
       "password": "Pa$$w0rd!",
-      "role": "user"
-    },
-    {
-      "id": "95e1",
-      "name": "Elton Richmond",
-      "email": "mijidofuvi@mailinator.com",
-      "password": "Pa$$w0rd!",
-      "phone": "01202445567",
-      "image": "https://randomuser.me/api/portraits/men/6.jpg",
       "role": "user"
     },
     {
@@ -70,6 +61,15 @@
       "password": "Pa$$w0rd!",
       "phone": "01002344094",
       "image": "https://randomuser.me/api/portraits/men/3.jpg",
+      "role": "user"
+    },
+    {
+      "id": "b8eb",
+      "name": "Madeson Cherry",
+      "email": "puxyvu@mailinator.com",
+      "password": "Pa$$w0rd!",
+      "phone": "01534567895",
+      "image": "https://randomuser.me/api/portraits/men/43.jpg",
       "role": "user"
     }
   ]
