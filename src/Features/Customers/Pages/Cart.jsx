@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"; // للتنقل بين الصف�
 import LogoNavbar from "../../Admin/Components/LogoNavbar";
 import Navbar from "../Components/UserNavbar";
 
+
 const CartPage = () => {
   const navigate = useNavigate(); // Hook للتنقل بين الصفحات
 
