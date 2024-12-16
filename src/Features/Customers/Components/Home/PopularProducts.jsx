@@ -4,8 +4,10 @@ import { fetchProducts } from '../../../Admin/Components/AdminRedux/ProductsSlic
 import { addToCart } from '../../../Admin/Components/AdminRedux/CartSlice';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom"; 
 
 const PopularProducts = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { products, loading, error } = useSelector((state) => state.products);
   const { loading: cartLoading, error: cartError } = useSelector((state) => state.cart);
@@ -46,6 +48,11 @@ const PopularProducts = () => {
     } else {
       setCurrentIndex(products.length - itemsPerPage);
     }
+  };
+
+  // Modify handleViewDetailsClick to accept the product and navigate with the product ID
+  const handleViewDetailsClick = (productId) => {
+    navigate(`/products/${productId}`); // Navigate to the product details page
   };
 
   const renderRating = (rating) => {
@@ -100,6 +107,7 @@ const PopularProducts = () => {
                 <button
                   className="btn btn-outline-secondary btn-sm"
                   style={{ transition: 'background-color 0.3s' }}
+                  onClick={() => handleViewDetailsClick(product.id)} // Pass product.id
                   onMouseOver={(e) => e.target.style.backgroundColor = '#FF63A1'}
                   onMouseOut={(e) => e.target.style.backgroundColor = ''}>
                   View

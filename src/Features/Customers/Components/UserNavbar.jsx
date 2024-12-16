@@ -53,6 +53,7 @@ const UserNavbar = () => {
     setSearchSubmitted(false);
   };
 
+  // Filter products based on search query
   const filteredProducts = searchSubmitted
     ? searchQuery === ""  // Check if search query is empty
       ? []
@@ -216,16 +217,17 @@ const UserNavbar = () => {
                       <p className="mb-0 text-muted">{product.category}</p>
                     </div>
                     <Link
-                      to={`/products/view-product/${product.id}`}
+                      to={`/products/${product.id}`}
                       className="btn btn-sm"
                       style={{
                         backgroundColor: "#F79420",
-                        color: "#fff",
+                        color: "white",
+                        fontSize: "12px",
+                        borderRadius: "50px",
                         marginLeft: "auto",
                       }}
-                      onClick={handleClearSearchResults}
                     >
-                      <FontAwesomeIcon icon={faEye} />
+                      <FontAwesomeIcon icon={faEye} className="me-1" />
                       View
                     </Link>
                   </div>

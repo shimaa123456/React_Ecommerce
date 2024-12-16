@@ -76,11 +76,41 @@ export const updateProductStock = createAsyncThunk(
     }
   }
 );
+export const addReviewToProduct = createAsyncThunk(
+  'products/addReviewToProduct',
+  async ({ productId, review }, { rejectWithValue }) => {
+    try {
+      // Fetch the current product data
+      const productResponse = await axios.get(`http://localhost:4000/products/${productId}`);
+      const product = productResponse.data;
+
+      // Append the new review to the existing reviews
+      product.reviews.push(review);
+
+      // Calculate the new average rating
+      const totalRating = product.reviews.reduce((sum, rev) => sum + rev.rating, 0);
+      const averageRating = totalRating / product.reviews.length;
+      
+      // Update the product's rating with the new average
+      product.rating = parseFloat(averageRating.toFixed(2));
+
+      // Update the product with the new review and rating
+      const response = await axios.put(`http://localhost:4000/products/${productId}`, product);
+      return response.data; // Return the updated product with the new review and rating
+    } catch (error) {
+      return rejectWithValue(error.message || 'Failed to add review');
+    }
+  }
+);
+
+
+
 
 const productsSlice = createSlice({
   name: 'products',
   initialState: {
     products: [],
+    product: {},
     loading: false,
     error: null,
   },
@@ -150,7 +180,18 @@ const productsSlice = createSlice({
     })
     .addCase(updateProductStock.rejected, (state, action) => {
       state.error = action.payload;
-    });
+    })
+            // Handle add review to product
+      .addCase(addReviewToProduct.fulfilled, (state, action) => {
+        const updatedProduct = action.payload;
+        const index = state.products.findIndex((product) => product.id === updatedProduct.id);
+        if (index !== -1) {
+          state.products[index] = updatedProduct; // Update product with the new review
+        }
+      })
+      .addCase(addReviewToProduct.rejected, (state, action) => {
+        state.error = action.payload;
+      });
   },
 });
 

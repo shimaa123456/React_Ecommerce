@@ -35,6 +35,7 @@ import UserProducts from "./Features/Customers/Pages/Products";
 import Cart from "./Features/Customers/Pages/Cart";
 import Checkout from "./Features/Customers/Pages/Checkout";
 import OrderHistory from "./Features/Customers/Pages/OrderHistory";
+import ProductDetails from "./Features/Customers/Pages/ProductDetails";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -89,11 +90,12 @@ function App() {
         </Route>
 
         {/* Home Route */}
-      <Route path="home" element={<Home />} />
+        <Route path="home" element={<Home />} />
         <Route path="products" element={<UserProducts />} />
         <Route path="cart" element={<Cart />} />
         <Route path="cart/checkout" element={<Checkout />} />
         <Route path="orderhistory" element={<OrderHistory />} />
+        <Route path="/products/:productId" element={<ProductDetails />} />
       </Routes>
     </BrowserRouter>
   );
