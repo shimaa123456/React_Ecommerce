@@ -41,7 +41,7 @@ const ViewProduct = () => {
           <div className="card">
             <div className="card-body text-center">
               <img
-                src={product.images[0] || '/placeholder.png'} // Use the first image as the main image
+                src={(product.images && product.images[0]) || '/placeholder.png'} // Use the first image as the main image
                 alt={product.title}
                 className="img-fluid rounded mb-3"
                 width="200"
@@ -79,9 +79,10 @@ const ViewProduct = () => {
                     <td>{product.stock}</td>
                   </tr>
                   <tr>
-                    <td>Tags</td>
-                    <td>{product.tags.join(', ')}</td>
-                  </tr>
+  <td>Tags</td>
+  <td>{Array.isArray(product.tags) && product.tags.length > 0 ? product.tags.join(', ') : 'N/A'}</td>
+</tr>
+
                   <tr>
                     <td>Rating</td>
                     <td>{product.rating}</td>
@@ -99,11 +100,14 @@ const ViewProduct = () => {
                     <td>{product.weight} kg</td>
                   </tr>
                   <tr>
-                    <td>Dimensions</td>
-                    <td>
-                      Width: {product.dimensions.width} cm, Height: {product.dimensions.height} cm, Depth: {product.dimensions.depth} cm
-                    </td>
-                  </tr>
+  <td>Dimensions</td>
+  <td>
+    {product.dimensions
+      ? `Width: ${product.dimensions.width} cm, Height: ${product.dimensions.height} cm, Depth: ${product.dimensions.depth} cm`
+      : 'N/A'}
+  </td>
+</tr>
+
                   <tr>
                     <td>Warranty Information</td>
                     <td>{product.warrantyInformation}</td>
